@@ -25,15 +25,17 @@ Include `include/libsbicall/sbicall.h` and Link with `libsbicall.a`
 ## Example Code
 
 ```
-#include <stdio.h>
 #include "libsbicall/sbicall.h"
 
 int example(void)
 {
 	struct sbiret result = sbi_get_spec_version();
 
-	if (!result.error) printf("SBI spec version: %lx", result.value);
-		else printf("error %lx", result.error);
+	if (!result.error) {
+		// do something useful with result.value
+	} else {
+		// use check result.error for error code
+	}
 
 	return result.error;
 }
