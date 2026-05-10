@@ -28,10 +28,10 @@ user-space programm **will not work**.
 
 - `make`
 
-Per default, the build process creates `libsbicall.a` in `../build/<target>`.
+Per default, the build process creates `libsbicall.a` in `../build/<target>/libsbicall`.
 
 ## Usage
-Include `include/libsbicall/sbicall.h` and Link with `libsbicall.a`
+Include `include/libsbicall/sbicall.h` and link with `libsbicall.a`
 
 ## Example Code
 
