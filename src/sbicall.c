@@ -8,9 +8,10 @@
 #include "libsbicall/sbicall.h"
 
 
+/* list of all extensions */
 const struct sbi_extension sbi_extensions[] = {
-	{"BASE", SBI_EID_BASE},
 	{"LEGACY", SBI_EID_LEGACY},
+	{"BASE", SBI_EID_BASE},
 	{"TIME", SBI_EID_TIME},
 	{"IPI", SBI_EID_IPI},
 	{"RFNC", SBI_EID_RFNC},
@@ -28,7 +29,9 @@ const struct sbi_extension sbi_extensions[] = {
 	{"MPXY", SBI_EID_MPXY}
 };
 
+/* number of extensions */
 const int sbi_num_extensions = sizeof(sbi_extensions) / sizeof(struct sbi_extension);
+
 
 /*
  * LEGACY extensions differ from rest
