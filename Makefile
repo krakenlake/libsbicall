@@ -18,10 +18,8 @@ LIBSBICALL_AR		?= $(LIBSBICALL_TOOLBIN)/riscv64-elf-ar
 LIBSBICALL_RANLIB	?= $(LIBSBICALL_TOOLBIN)/riscv64-elf-ranlib
 
 # CFLAGS
-CFLAGS = -march=rv$(LIBSBICALL_TARGET_XLEN)g
-CFLAGS += -I"$(LIBSBICALL_SRCD)/include"
 CFLAGS += -DDEBUG
-CFLAGS += -DPLUTONIC_VERSION=\"$(PLUTONIC_VERSION)\"
+CFLAGS = -march=rv$(LIBSBICALL_TARGET_XLEN)g
 # warnings
 CFLAGS += -Wall -Werror -Wextra -pedantic
 # warn if inline function cannot be substituted
@@ -38,6 +36,7 @@ CFLAGS += -nostartfiles
 CFLAGS += -O2
 # add debug symbols
 CFLAGS += -g
+
 LIBSBICALL_CFLAGS ?= $(CFLAGS) 
 
 # names
