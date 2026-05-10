@@ -28,7 +28,7 @@ user-space programm **will not work**.
 
 - `make`
 
-Per default, the build process creates `libsbicall.a` in `../build/`.
+Per default, the build process creates `libsbicall.a` in `../build/<target>`.
 
 ## Usage
 Include `include/libsbicall/sbicall.h` and Link with `libsbicall.a`
@@ -45,7 +45,7 @@ int example(void)
 	if (!result.error) {
 		// do something useful with result.value
 	} else {
-		// use check result.error for error code
+		// check result.error for error code
 	}
 
 	return result.error;
