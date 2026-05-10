@@ -8,8 +8,11 @@
 - check Makefile, especially the following settings:
 
 `LIBSBICALL_TOOLBIN`
+
 `LIBSBICALL_GCC_INC`
+
 `LIBSBICALL_BUILDROOT`
+
 `LIBSBICALL_RELEASE`
 
 - `make`
