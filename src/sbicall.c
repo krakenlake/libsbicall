@@ -5,7 +5,6 @@
  *
  */
 #include "config.h"
-#include "riscv/register.h"
 #include "libsbicall/sbicall.h"
 
 
