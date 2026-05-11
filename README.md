@@ -8,8 +8,8 @@ of having to deal with `ecall` and assembly interfacing.
 called from **Supervisor** mode, so your executable needs to run in
 **S-mode** in order for SBI calls to work. User-space executables,
 like Linux applications, do never have access to SBI calls
-(with or without library), so using libsbicall in any 
-user-space programm **will not work**.
+(with or without library), so using libsbicall in any
+user-space program **will not work**.
 
 ## Requirements
 - riscv GNU toolchain for building
