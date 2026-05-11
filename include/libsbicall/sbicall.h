@@ -9,6 +9,7 @@
  */
 #pragma once
 
+#define SBICALL_XLEN (sizeof(unsigned long)*8)
 
 /*
  * Standard SBI Errors
@@ -655,49 +656,24 @@
 	struct sbiret sbi_mpxy_get_notification_events(uint32_t channel_id);
 
 
-	#if (XLEN == 32)
-		struct sbi_event_idx_code {
-			unsigned long unused : 16;
-			unsigned long cache_id : 13;
-			unsigned long op_id : 2;
-			unsigned long result_id : 1;
-		};
+	struct sbi_event_idx_code {
+		unsigned long result_id : 1;
+		unsigned long op_id : 2;
+		unsigned long cache_id : 13;
+		unsigned long unused : SBICALL_XLEN-1-2-13;
+	};
+	
+	struct sbi_event_idx {
+		unsigned long code : 16;
+		unsigned long type : 4;
+		unsigned long unused : SBICALL_XLEN-16-4;
+	};
 
-		struct sbi_event_idx {
-			unsigned long unused : 12;
-			unsigned long type : 4;
-			unsigned long code : 16;
-		};
-
-		struct counter_info {
-			unsigned long type : 1;
-			unsigned long reserved: 14;
-			unsigned long width: 5;
-			unsigned long CSR : 12;
-		};
-
-	#endif
-
-	#if(XLEN == 64)
-		struct sbi_event_idx_code {
-			unsigned long unused : 48;
-			unsigned long cache_id : 13;
-			unsigned long op_id : 2;
-			unsigned long result_id : 1;
-		};
-
-		struct sbi_event_idx {
-				unsigned long unused : 44;
-				unsigned long type : 4;
-				unsigned long code : 16;
-		};
-
-		struct counter_info {
-			unsigned long type : 1;
-			unsigned long reserved: 46;
-			unsigned long width: 5;
-			unsigned long CSR : 12;
-		};
-	#endif
+	struct counter_info {
+		unsigned long CSR : 12;
+		unsigned long width: 6;
+		unsigned long reserved: SBICALL_XLEN-12-6-1;
+		unsigned long type : 1;
+	};
 
 #endif /* __ASSEMBLER__ */
