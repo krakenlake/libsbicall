@@ -11,11 +11,10 @@ LIBSBICALL_TARGET_XLEN ?= 64
 
 # tools
 LIBSBICALL_TOOLBIN	?= /usr/local/bin
-LIBSBICALL_GCC_INC	?= /usr/local/Cellar/riscv-gnu-toolchain/main/riscv64-unknown-elf/include
-LIBSBICALL_CC		?= $(LIBSBICALL_TOOLBIN)/riscv64-elf-gcc
-LIBSBICALL_CPP		?= $(LIBSBICALL_TOOLBIN)/riscv64-elf-cpp
-LIBSBICALL_AR		?= $(LIBSBICALL_TOOLBIN)/riscv64-elf-ar
-LIBSBICALL_RANLIB	?= $(LIBSBICALL_TOOLBIN)/riscv64-elf-ranlib
+LIBSBICALL_CC		?= $(LIBSBICALL_TOOLBIN)/riscv64-unknown-elf-gcc
+LIBSBICALL_CPP		?= $(LIBSBICALL_TOOLBIN)/riscv64-unknown-elf-cpp
+LIBSBICALL_AR		?= $(LIBSBICALL_TOOLBIN)/riscv64-unknown-elf-ar
+LIBSBICALL_RANLIB	?= $(LIBSBICALL_TOOLBIN)/riscv64-unknown-elf-ranlib
 
 # CFLAGS
 CFLAGS += -DDEBUG
@@ -49,7 +48,7 @@ LIBSBICALL_SRC			= $(wildcard ./src/*.c)
 LIBSBICALL_OBJ			= $(LIBSBICALL_SRC:./src/%.c=$(LIBSBICALL_BUILD)/%.o)
 LIBSBICALL_DEP			= $(LIBSBICALL_OBJ:%.o=%.d)
 
-INCLUDES = -Iinclude -I$(LIBSBICALL_GCC_INC)
+INCLUDES = -Iinclude
 
 # dependencies
 -include $(LIBSBICALL_DEP)
