@@ -11,7 +11,7 @@
  * FWFT extension
  */
 
-struct sbiret sbi_fwft_set(uint32_t feature,
+sbiret sbi_fwft_set(uint32_t feature,
 						unsigned long value,
 						unsigned long flags)
 {
@@ -19,7 +19,7 @@ struct sbiret sbi_fwft_set(uint32_t feature,
 		SBI_FID_sbi_fwft_set, SBI_EID_FWFT);
 }
 
-struct sbiret sbi_fwft_get(uint32_t feature)
+sbiret sbi_fwft_get(uint32_t feature)
 {
 	return sbicall(feature, 0, 0, 0, 0, 0,
 		SBI_FID_sbi_fwft_get, SBI_EID_FWFT);

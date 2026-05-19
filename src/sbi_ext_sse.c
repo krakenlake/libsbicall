@@ -11,7 +11,7 @@
  * SSE extension
  */
 
-struct sbiret sbi_sse_read_attrs(uint32_t event_id,
+sbiret sbi_sse_read_attrs(uint32_t event_id,
 								uint32_t base_attr_id, 
 								uint32_t attr_count,
 								unsigned long output_phys_lo,
@@ -21,7 +21,7 @@ struct sbiret sbi_sse_read_attrs(uint32_t event_id,
 		SBI_FID_sbi_sse_read_attrs, SBI_EID_SSE);
 }
 
-struct sbiret sbi_sse_write_attrs(uint32_t event_id,
+sbiret sbi_sse_write_attrs(uint32_t event_id,
 								uint32_t base_attr_id, 
 								uint32_t attr_count,
 								unsigned long input_phys_lo,
@@ -31,7 +31,7 @@ struct sbiret sbi_sse_write_attrs(uint32_t event_id,
 		SBI_FID_sbi_sse_write_attrs, SBI_EID_SSE);
 }
 
-struct sbiret sbi_sse_register(uint32_t event_id,
+sbiret sbi_sse_register(uint32_t event_id,
 								unsigned long handler_entry_pc,
 								unsigned long handler_entry_arg)
 {
@@ -39,43 +39,43 @@ struct sbiret sbi_sse_register(uint32_t event_id,
 		SBI_FID_sbi_sse_register, SBI_EID_SSE);
 }
 
-struct sbiret sbi_sse_unregister(uint32_t event_id)
+sbiret sbi_sse_unregister(uint32_t event_id)
 {
 	return sbicall(event_id, 0, 0, 0, 0, 0,
 		SBI_FID_sbi_sse_unregister, SBI_EID_SSE);
 }
 
-struct sbiret sbi_sse_enable(uint32_t event_id)
+sbiret sbi_sse_enable(uint32_t event_id)
 {
 	return sbicall(event_id, 0, 0, 0, 0, 0,
 		SBI_FID_sbi_sse_enable, SBI_EID_SSE);
 }
 
-struct sbiret sbi_sse_disable(uint32_t event_id)
+sbiret sbi_sse_disable(uint32_t event_id)
 {
 	return sbicall(event_id, 0, 0, 0, 0, 0,
 		SBI_FID_sbi_sse_disable, SBI_EID_SSE);
 }
 
-struct sbiret sbi_sse_complete(void)
+sbiret sbi_sse_complete(void)
 {
 	return sbicall(0, 0, 0, 0, 0, 0,
 		SBI_FID_sbi_sse_complete, SBI_EID_SSE);
 }
 
-struct sbiret sbi_sse_inject(uint32_t event_id, unsigned long hart_id)
+sbiret sbi_sse_inject(uint32_t event_id, unsigned long hart_id)
 {
 	return sbicall(event_id, hart_id, 0, 0, 0, 0,
 		SBI_FID_sbi_sse_inject, SBI_EID_SSE);
 }
 
-struct sbiret sbi_sse_hart_unmask(void)
+sbiret sbi_sse_hart_unmask(void)
 {
 	return sbicall(0, 0, 0, 0, 0, 0,
 		SBI_FID_sbi_sse_hart_unmask, SBI_EID_SSE);
 }
 
-struct sbiret sbi_sse_hart_mask(void)
+sbiret sbi_sse_hart_mask(void)
 {
 	return sbicall(0, 0, 0, 0, 0, 0,
 		SBI_FID_sbi_sse_hart_mask, SBI_EID_SSE);

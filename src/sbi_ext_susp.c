@@ -11,7 +11,7 @@
  * SUSP extension
  */
 
-struct sbiret sbi_system_suspend(uint32_t sleep_type,
+sbiret sbi_system_suspend(uint32_t sleep_type,
 								unsigned long resume_addr,
 								unsigned long opaque)
 {

@@ -8,7 +8,7 @@
 
 
 /* list of all extensions */
-const struct sbi_extension sbi_extensions[] = {
+const sbi_extension sbi_extensions[] = {
 	{"LEGACY", SBI_EID_LEGACY},
 	{"BASE", SBI_EID_BASE},
 	{"TIME", SBI_EID_TIME},
@@ -29,7 +29,7 @@ const struct sbi_extension sbi_extensions[] = {
 };
 
 /* number of extensions */
-const int sbi_num_extensions = sizeof(sbi_extensions) / sizeof(struct sbi_extension);
+const int sbi_num_extensions = sizeof(sbi_extensions) / sizeof(sbi_extension);
 
 
 /*
@@ -62,7 +62,7 @@ inline long sbicall_legacy(unsigned long arg0, unsigned long arg1,
 /*
  * other extensions use this
  */
-inline struct sbiret sbicall(unsigned long arg0, unsigned long arg1, 
+inline sbiret sbicall(unsigned long arg0, unsigned long arg1, 
 							unsigned long arg2, unsigned long arg3,
 							unsigned long arg4, unsigned long arg5,
 							long fid, long eid) 
@@ -82,5 +82,5 @@ inline struct sbiret sbicall(unsigned long arg0, unsigned long arg1,
 		: "r"(a0), "r"(a1), "r"(a2), "r"(a3), "r"(a4), "r"(a5), "r"(a6), "r"(a7)
 		: "memory"
 	);
-	return (struct sbiret){.error = a0, .value = a1};
+	return (sbiret){.error = a0, .value = a1};
 }

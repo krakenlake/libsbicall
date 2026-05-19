@@ -11,7 +11,7 @@
  * STA extension
  */
 
-struct sbiret sbi_steal_time_set_shmem(unsigned long shmem_phys_lo,
+sbiret sbi_steal_time_set_shmem(unsigned long shmem_phys_lo,
 									unsigned long shmem_phys_hi,
 									unsigned long flags)
 {
